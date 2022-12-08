@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% for table in tables %}
+            {{titles[loop.index]}}
+            {{ table|safe }}
+{% endfor %}
+
+{%if ctrsuccess %}
+        <div class="table-responsive">
+            <table class="table table-striped">
+			 <thead>
+    				<tr style="text-align: left;">
+      					
+      				<th>Author</th>
+     					<th>Cita1</th>
+      				<th>Cita2</th>
+    				</tr>
+  			</thead>
+                <tbody>
+                    {%for ctrrow in ctrsuccess %}
+                    <tr>
+                        <td>{{ ctrrow['Autor'] }}</td>
+				<td>{{ ctrrow['Cita1'] }}</td>
+				<td>{{ ctrrow['Cita2'] }}</td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+        {%endif%}
+
+</body>
+</html>
